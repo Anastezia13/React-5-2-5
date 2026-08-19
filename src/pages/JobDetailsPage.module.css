@@ -1,0 +1,55 @@
+.page {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.loadingState {
+  min-height: 420px;
+}
+
+.breadcrumbLink {
+  color: var(--mantine-color-blue-6);
+  text-decoration: none;
+}
+
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+
+.heroCard {
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 62%);
+}
+
+.titleBlock {
+  max-width: 720px;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  line-height: 1.18;
+}
+
+.facts {
+  padding-top: 4px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.description {
+  white-space: pre-line;
+  line-height: 1.7;
+}
+
+@media (max-width: 576px) {
+  .page {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  .heroCard {
+    padding: 20px;
+  }
+}

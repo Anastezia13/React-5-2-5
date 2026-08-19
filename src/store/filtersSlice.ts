@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface FiltersState {
+export interface FiltersState {
   search: string;
   city: string;
   skills: string[];
@@ -18,6 +18,7 @@ const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
+    hydrateFilters: (_state, action: PayloadAction<FiltersState>) => action.payload,
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
       state.page = 1;
@@ -34,7 +35,7 @@ const filtersSlice = createSlice({
       }
     },
     removeSkill: (state, action: PayloadAction<string>) => {
-      state.skills = state.skills.filter((s) => s !== action.payload);
+      state.skills = state.skills.filter((skill) => skill !== action.payload);
       state.page = 1;
     },
     setPage: (state, action: PayloadAction<number>) => {
@@ -43,6 +44,12 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { setSearch, setCity, addSkill, removeSkill, setPage } =
-  filtersSlice.actions;
+export const {
+  hydrateFilters,
+  setSearch,
+  setCity,
+  addSkill,
+  removeSkill,
+  setPage,
+} = filtersSlice.actions;
 export default filtersSlice.reducer;

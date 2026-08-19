@@ -1,4 +1,5 @@
-import { Card, Text, Group, Badge, Button, Stack } from '@mantine/core';
+import { Badge, Button, Card, Group, Stack, Text } from '@mantine/core';
+import { Link } from 'react-router-dom';
 import type { Job } from '../types';
 import styles from './JobCard.module.css';
 
@@ -22,14 +23,10 @@ export const JobCard = ({ job }: JobCardProps) => {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.card}>
       <Stack gap="sm">
-        <Text size="lg" fw={700}>
-          {job.name}
-        </Text>
+        <Text size="lg" fw={700}>{job.name}</Text>
 
         <Group gap="sm">
-          <Text fw={500} c="green">
-            {job.salary || 'з/п не указана'}
-          </Text>
+          <Text fw={500} c="green">{job.salary || 'з/п не указана'}</Text>
           <Text c="dimmed">•</Text>
           <Text c="dimmed">{job.experience || 'опыт не указан'}</Text>
         </Group>
@@ -49,6 +46,8 @@ export const JobCard = ({ job }: JobCardProps) => {
         </Group>
 
         <Button
+          component={Link}
+          to={`/vacancies/${job.id}`}
           variant="outline"
           color="blue"
           className={styles.viewButton}
